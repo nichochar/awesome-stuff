@@ -1,0 +1,57 @@
+alias switch "lastinv"
+bind q switch
+bind "mwheelup" +jump
+bind "mwheeldown" +jump
+
+
+sv_cheats               "1"         // Enable cheat commands on private servers
+con_enable              "1"         // Enables console without requiring -console in launch options
+fps_max                 "999"       // 999 is better than 0 for some loading times, sometimes
+cl_disablefreezecam     "1"         // Disables freezecam
+cl_autowepswitch        "0"         // Disables auto switching to weapons you pick up
+cl_use_opens_buy_menu   "0"         // Disables E opening buy menu
+hud_showtargetid        "1"         // Shows enemy name when you aim at them
+cl_showloadout          "1"         // Always show your items on screen (bottom right)
+snd_mute_losefocus      "0"         // Enables game volume to play when alt-tabbed
+net_client_steamdatagram_enable_override    "1" // Force Steam datagram relay on (recommended)
+mm_dedicated_search_maxping     "75"   // Max ping for MM servers you join (set low)
+mm_csgo_community_search_players_min "3"    // Minimum amount of actual players on servers Valve connects you to (no more joining servers full of bots!)
+
+cl_hud_healthammo_style     "0"     // Enables healthbar next to your health and ammo
+
+// network options, only good if i have a good connection
+// change to 524288 then 262144 for 4MB/s and 2MB/s respectively
+rate 786432
+cl_cmdrate 128
+cl_updaterate 128
+cl_interp 0
+cl_interp_ratio 1
+
+m_mousespeed            "0"         // Disables mouse acceleration
+m_customaccel           "0"         // Disables mouse acceleration
+m_rawinput              "1"         // Enables 1:1 raw mouse input (no acceleration)
+
+// sound
+// Sound commands
+snd_musicvolume         "0.3"       // Master music volume level
+snd_deathcamera_volume  "0"         // Music in deathcamera
+snd_mapobjective_volume "0"         // Music that starts when bomb is planted
+snd_menumusic_volume    "0"         // Music in main menu
+snd_roundend_volume     "0"         // Music when round ends
+snd_roundstart_volume   "0"         // Music when round starts
+snd_tensecondwarning_volume "0.2"   // 10 Second bomb music timer (actually 9.7 seconds) (recommended on)
+
+//Show netgraph when checking scoreboard
+net_graph "1"
+net_graphheight "9999"
+alias "+scorenet" "+showscores; net_graphheight 0"
+alias "-scorenet" "-showscores; net_graphheight 9999"
+bind "TAB" "+scorenet"
+
+alias "+jumpthrow" "+jump;-attack;-attack2"
+alias "-jumpthrow" "-jump"
+bind "i" "+jumpthrow"
+bind    "f"     "+lookatweapon;r_cleardecals"
+
+// important line for autoexecution, needs to be the last line.
+host_writeconfig
